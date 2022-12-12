@@ -1,49 +1,69 @@
 <template>
     <div>
-        <div class="container m-3">
-                <h1>Html File Editor</h1>
-                <button type="submit" class="btn btn-primary " @click="saveData">
-                    Save File
-                </button>
+        <div class="row m-2">
+            <!-- Header -->
+                <div class="col">
+                    <h1>Template Creater</h1>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" style="float:right;" @click="saveData">
+                        Save File
+                    </button>
+                </div>
         </div>
-        <div class="container row">
+        <!-- Finish Header -->
+        <!-- Create Template -->
+        <div class="row m-3">
             <div class="col">
+                <h2>Create Template</h2>
                 <textarea id="editor" v-model="editor_data"
                 placeholder="Start Coding"></textarea>
             </div>
-            <div id="viewer" v-html="editor_data" class="col">
+            <div class="col m-2">
+                <h2>Output</h2>
+                <div id="viewer" v-html="editor_data">
+                </div>
             </div>
         </div>
+        <!-- Finish Create Template -->
+
+        <!-- Show saved files  -->
         <div class="container m-3">
-            <h1>
-                My files
-            </h1>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Username</th>
-                    <th>Files</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-                </tbody>
+            <h1>My Files</h1>
+            <table class="table table-striped table-hover">
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Username
+                            </th>
+                            <th>
+                                Files
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                        <tr v-for="(item , index) in files_data" :key="item.id">
+                            <td>
+                                {{ index + 1 }}
+                            </td>
+                            <td>
+                                {{ item.user_id }}
+                            </td>
+                            <td>
+                                {{ item.file_data }}
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-warning m-1" @click="editData(item.id)">
+                                    Edit
+                                </button>
+                                <button class="btn btn-sm btn-danger">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
             </table>
         </div>
     </div>
@@ -53,10 +73,21 @@
 export default {
     data(){
         return {
-            editor_data : ''
+            editor_data : '',
+            files_data: []
         }
     },
+    mounted(){
+        this.fetchall()
+    },
     methods:{
+        fetchall(){
+            axios.get('/htmleditor')
+            .then(res => {
+                console.log(res.data)
+                this.files_data = res.data
+            })
+        },
         saveData(){
             try {
                 axios.post('/htmleditor', {'editor_data' : this.editor_data})
@@ -68,12 +99,22 @@ export default {
             } catch (e) {
                 console.log(e);
             }
+        },
+        editData(id){
+            axios.get(`/htmleditor/${id}`)
+            .then(res=>{
+                console.log(typeof(res.data))
+                console.log(res.data)
+            })
         }
     }
 }
 </script>
 
 <style>
+h2{
+    margin-left: 10px;
+}
  #editor{
             width: 100%;
             height: 100vh;
@@ -83,14 +124,16 @@ export default {
             resize: none;
             border-radius: 5px;
             background-color: black;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+            /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+            /* box-shadow: 0 4px 8px 0 #04c8c8; */
+
         }
         #viewer{
             width: 100%;
             height: 100vh;
             margin: 10px;
             padding: 10px;
-            background-color: rgb(244, 217, 217);
+            background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
         }

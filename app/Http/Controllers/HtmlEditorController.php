@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\HtmlEditor;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Exists;
 use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
 use SebastianBergmann\CodeCoverage\Report\PHP as ReportPHP;
 
@@ -18,7 +20,8 @@ class HtmlEditorController extends Controller
      */
     public function index()
     {
-        return view('htmleditor');
+        $all_files = HtmlEditor::all();
+        return $all_files;
     }
 
     /**
@@ -50,8 +53,8 @@ class HtmlEditorController extends Controller
         }
         else{
             // Create a file with the given data from Frontend
-            $file_name = strtolower(substr($editor_data , 0 , 20 ));
-            $file_name_with_extension = Auth::user()->name . "_" . $file_name . "_" . time() . ".html";
+            // $file_name = strtolower(substr($editor_data , 0 , 20 ));
+            $file_name_with_extension = Auth::user()->name . "_" . "file" . "_" . time() . ".html";
             $create_file = fopen($file_name_with_extension, "w");
             fwrite( $create_file , $editor_data );
             fclose($create_file);
@@ -67,7 +70,6 @@ class HtmlEditorController extends Controller
                 $new_file->file_data = $file_name_with_extension;
                 $new_file->user_id = auth()->user()->id;
                 $new_file->save();
-
 
                 return $file_name_with_extension . " saved to database and Local Storage Successfully.";
                 // return fread($create_file,filesize($file_name_with_extension));
@@ -87,7 +89,21 @@ class HtmlEditorController extends Controller
      */
     public function show($id)
     {
-        //
+        $file_detail = HtmlEditor::where('id', $id)->first();
+        $file_name = $file_detail->file_data;
+
+        $file = Storage::get($file_name);
+
+        // $open_file = fopen($file, "r");
+        // $read_data = fread($open_file,filesize($file));
+        return $file;
+        if($file){
+            return "file exist";
+        }
+        else{
+            return "file not exist";
+        }
+
     }
 
     /**

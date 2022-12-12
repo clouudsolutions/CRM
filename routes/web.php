@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.register');
 });
-// Route::get('/htmleditor', function(){
-//     return view('htmleditor');
-// })->name('htmleditor');
+Route::get('/create_template', function(){
+    return view('htmleditor');
+})->name('create_template');
 
 Route::resource('/htmleditor', 'App\Http\Controllers\HtmlEditorController');
 Auth::routes();
