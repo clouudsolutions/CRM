@@ -92,17 +92,7 @@ class HtmlEditorController extends Controller
         $file_detail = HtmlEditor::where('id', $id)->first();
         $file_name = $file_detail->file_data;
 
-        $file = Storage::get($file_name);
-
-        // $open_file = fopen($file, "r");
-        // $read_data = fread($open_file,filesize($file));
-        return $file;
-        if($file){
-            return "file exist";
-        }
-        else{
-            return "file not exist";
-        }
+        return file_get_contents('storage/editor_files/'. $file_name);
 
     }
 
@@ -126,7 +116,11 @@ class HtmlEditorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $file_detail = HtmlEditor::where('id', $id)->first();
+        $file_name = $file_detail->file_data;
+        $editor_data = $request->editor_data;
+        file_put_contents('storage/editor_files/' . $file_name , $editor_data);
+        return "File Updated Successfully";
     }
 
     /**
@@ -137,6 +131,10 @@ class HtmlEditorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file_detail = HtmlEditor::find($id);
+        $file_name = $file_detail->file_data;
+        Storage::delete('public/editor_files/' . $file_name);
+        $file_detail->delete();
+        return "File Deleted Successfully";
     }
 }

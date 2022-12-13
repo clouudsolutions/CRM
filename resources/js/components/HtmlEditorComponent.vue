@@ -6,8 +6,11 @@
                     <h1>Template Creater</h1>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-primary" style="float:right;" @click="saveData">
+                    <button v-if="!is_editing" type="submit" class="btn btn-primary" style="float:right;" @click="saveData">
                         Save File
+                    </button>
+                    <button v-else-if="is_editing" type="submit" class="btn btn-primary" style="float:right;" @click="updateData">
+                        Update File
                     </button>
                 </div>
         </div>
@@ -45,7 +48,7 @@
                                 Actions
                             </th>
                         </tr>
-                        <tr v-for="(item , index) in files_data" :key="item.id">
+                        <tr v-for="(item , index) in all_files_data" :key="item.id">
                             <td>
                                 {{ index + 1 }}
                             </td>
@@ -59,8 +62,11 @@
                                 <button class="btn btn-sm btn-warning m-1" @click="editData(item.id)">
                                     Edit
                                 </button>
-                                <button class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger m-1" @click="deleteData(item.id)">
                                     Delete
+                                </button>
+                                <button class="btn btn-sm btn-success m-1" @click="downloadData(item.id)">
+                                    Download
                                 </button>
                             </td>
                         </tr>
@@ -74,18 +80,21 @@ export default {
     data(){
         return {
             editor_data : '',
-            files_data: []
+            all_files_data : [],
+            is_editing : false,
+            temp_id    : ''
         }
     },
     mounted(){
-        this.fetchall()
+        this.fetchall();
+        this.is_editing = false;
     },
     methods:{
         fetchall(){
             axios.get('/htmleditor')
             .then(res => {
                 console.log(res.data)
-                this.files_data = res.data
+                this.all_files_data = res.data
             })
         },
         saveData(){
@@ -103,9 +112,28 @@ export default {
         editData(id){
             axios.get(`/htmleditor/${id}`)
             .then(res=>{
-                console.log(typeof(res.data))
-                console.log(res.data)
+                // console.log(res.data);
+                this.editor_data = res.data;
+                this.is_editing = true;
+                this.temp_id = id;
+
             })
+        },
+        updateData(){
+            axios.put(`/htmleditor/${this.temp_id}`, { 'editor_data' : this.editor_data })
+            .then(res=>{
+                alert(res.data)
+            })
+        },
+        deleteData(id){
+            axios.delete(`/htmleditor/${id}`)
+            .then(res=>{
+                console.log(res.data);
+                this.fetchall();
+            })
+        },
+        downloadData(id){
+            alert("download functionality");
         }
     }
 }
