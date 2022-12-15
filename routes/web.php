@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,12 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::fallback(function(){
+    return redirect('/home');
+});
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::resource('/htmleditor', 'App\Http\Controllers\HtmlEditorController');
+Route::resource('/team_management' , 'App\Http\Controllers\TeamManagementController');
+Route::resource('/task_management' , 'App\Http\Controllers\TaskManagementController');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

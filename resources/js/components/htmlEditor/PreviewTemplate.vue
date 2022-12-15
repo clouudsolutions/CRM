@@ -1,7 +1,7 @@
 <template>
     <div class="col">
         <h2>Preview - {{ $route.params.file_name }}</h2>
-        <div id="viewer" v-html="editor_data">
+        <div id="viewer" v-html="editor_data" style="width:720px;">
         </div>
     </div>
 </template>

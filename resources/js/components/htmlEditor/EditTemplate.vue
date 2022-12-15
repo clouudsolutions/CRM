@@ -51,8 +51,7 @@ export default {
         updateData(){
             axios.put(`/htmleditor/${this.id}`, { 'editor_data' : this.editor_data })
             .then(res=>{
-                alert(res.data);
-                this.router.replace('/view_template')
+                this.$router.push({ name : 'view_template'})
             })
         }
     }
