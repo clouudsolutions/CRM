@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('auth.login');
 });
-Route::get('/create_template', function(){
-    return view('htmleditor');
-})->name('create_template');
 
 Route::resource('/htmleditor', 'App\Http\Controllers\HtmlEditorController');
 Auth::routes();

@@ -10,13 +10,29 @@
         </div>
         <!--end::Logo-->
         <!--begin::Nav-->
-        <div class="aside-nav d-flex flex-column align-items-center flex-column-fluid w-100 pt-5 pt-lg-0" id="kt_aside_nav">
+        <div class="aside-nav d-flex flex-column align-items-center flex-column-fluid w-100 pt-5 pt-lg-0 active" id="kt_aside_nav">
             <!--begin::Wrapper-->
             <div class="hover-scroll-overlay-y mb-5 px-5" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_aside_nav" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-offset="0px">
                 <!--begin::Nav-->
                 <ul class="nav flex-column w-100" id="kt_aside_nav_tabs">
                     <!--begin::Nav item-->
                     <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="Menu">
+                        <!--begin::Nav link-->
+                        <a class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-400 btn-active-light" data-bs-toggle="tab" href="#kt_aside_nav_tab_menu">
+                            <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                            <span class="svg-icon svg-icon-2x">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="currentColor" />
+                                    <path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </a>
+                        <!--end::Nav link-->
+                    </li>
+                    <!--end::Nav item-->
+                     <!--begin::Nav item-->
+                     <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="Menu">
                         <!--begin::Nav link-->
                         <a class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-400 btn-active-light" data-bs-toggle="tab" href="#kt_aside_nav_tab_menu">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -93,7 +109,7 @@
                         <div class="menu-sub menu-sub-dropdown w-175px py-4">
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="../../demo7/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
+                                <a href="#" class="menu-link px-5">Referrals</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
@@ -228,7 +244,7 @@
                     <!--begin::Tab content-->
                     <div class="tab-content">
                         <!--begin::Tab pane-->
-                        <div class="tab-pane fade" id="kt_aside_nav_tab_menu" role="tabpanel">
+                        <div class="tab-pane fade active show" id="kt_aside_nav_tab_menu" role="tabpanel">
                             <!--begin::Menu-->
                             <div class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold fs-5 px-6 my-5 my-lg-0" id="kt_aside_menu" data-kt-menu="true">
                                 <div id="kt_aside_menu_wrapper" class="menu-fit">
@@ -264,24 +280,30 @@
                                             <!--begin:Menu item-->
                                             <div class="menu-item">
                                                 <!--begin:Menu link-->
-                                                <a class="menu-link" href="{{ route('create_template') }}">
+                                                {{-- <a class="menu-link" href="{{ route('create_template') }}">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
                                                     <span class="menu-title">Create Templates</span>
-                                                </a>
+                                                </a> --}}
+                                                <router-link to="/create_template" class="menu-link">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Create Templates</span>
+                                                </router-link>
                                                 <!--end:Menu link-->
                                             </div>
                                             <!--end:Menu item-->
                                             <!--begin:Menu item-->
                                             <div class="menu-item">
                                                 <!--begin:Menu link-->
-                                                <a class="menu-link" href="#">
+                                                <router-link to='/view_template' class="menu-link">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
                                                     <span class="menu-title">View Templates</span>
-                                                </a>
+                                                </router-link>
                                                 <!--end:Menu link-->
                                             </div>
                                             <!--end:Menu item-->
@@ -289,7 +311,7 @@
                                         <!--end:Menu sub-->
                                     </div>
                                     <!--end:Menu item-->
-                                    <!--begin:Menu item-->
+                                    {{-- <!--begin:Menu item-->
                                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                         <!--begin:Menu link-->
                                         <span class="menu-link">
@@ -326,7 +348,7 @@
                                         </div>
                                         <!--end:Menu sub-->
                                     </div>
-                                    <!--end:Menu item-->
+                                    <!--end:Menu item--> --}}
                                 </div>
                             </div>
                             <!--end::Menu-->

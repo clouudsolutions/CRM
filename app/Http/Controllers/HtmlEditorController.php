@@ -93,7 +93,7 @@ class HtmlEditorController extends Controller
         $file_name = $file_detail->file_data;
 
         return file_get_contents('storage/editor_files/'. $file_name);
-
+        // return view('htmlEditor.preview_template');
     }
 
     /**
@@ -104,7 +104,10 @@ class HtmlEditorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $file_detail = HtmlEditor::where('id', $id)->first();
+        $file_name = $file_detail->file_data;
+
+        return file_get_contents('storage/editor_files/'. $file_name);
     }
 
     /**

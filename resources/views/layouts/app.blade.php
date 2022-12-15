@@ -24,7 +24,7 @@
                     <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 
                         <!--begin::Content-->
-                            @yield('content')
+                        <router-view :key="$route.fullPath"></router-view>
                         <!--end::Content-->
 
                         <!--begin::Footer-->
