@@ -44,7 +44,7 @@ export default {
                 axios.post('/htmleditor', {'editor_data' : this.editor_data})
                 .then(res=>{
                         alert(res.data)
-                        console.log(res.data)
+                        this.$router.push({ name : 'view_template'})
                         // alert("Data "+ this.editor_data + " sent successfully")
                 })
             } catch (e) {

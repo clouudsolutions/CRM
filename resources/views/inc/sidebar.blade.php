@@ -32,7 +32,7 @@
                     </li>
                     <!--end::Nav item-->
                      <!--begin::Nav item-->
-                    <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="Team">
+                    <li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="User Management">
                         <!--begin::Nav link-->
                         <a class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-400 btn-active-light" data-bs-toggle="tab" href="#kt_aside_nav_tab_team">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
@@ -372,16 +372,16 @@
                             <div class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold fs-5 px-6 my-5 my-lg-0" id="kt_aside_menu" data-kt-menu="true">
                                 <div id="kt_aside_menu_wrapper" class="menu-fit">
                                     <!--begin:Menu item-->
-                                    <div class="menu-item pt-5">
+                                    {{-- <div class="menu-item pt-5">
                                         <!--begin:Menu content-->
                                         <div class="menu-content">
                                             <span class="menu-heading fw-bold text-uppercase fs-7">Team Management</span>
                                         </div>
                                         <!--end:Menu content-->
-                                    </div>
+                                    </div> --}}
                                     <!--end:Menu item-->
                                     <!--begin:Menu item-->
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                    {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                         <!--begin:Menu link-->
                                         <span class="menu-link">
                                             <span class="menu-icon">
@@ -424,48 +424,131 @@
                                                 <!--end:Menu link-->
                                             </div>
                                             <!--end:Menu item-->
+
                                         </div>
                                         <!--end:Menu sub-->
-                                    </div>
+                                    </div> --}}
                                     <!--end:Menu item-->
-                                    {{-- <!--begin:Menu item-->
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+
+                                    <!--begin:Menu item-->
+                                    <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                         <!--begin:Menu link-->
                                         <span class="menu-link">
                                             <span class="menu-icon">
-                                                <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
+                                                <!--begin::Svg Icon | path: icons/duotune/abstract/abs029.svg-->
                                                 <span class="svg-icon svg-icon-2">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M11.2929 2.70711C11.6834 2.31658 12.3166 2.31658 12.7071 2.70711L15.2929 5.29289C15.6834 5.68342 15.6834 6.31658 15.2929 6.70711L12.7071 9.29289C12.3166 9.68342 11.6834 9.68342 11.2929 9.29289L8.70711 6.70711C8.31658 6.31658 8.31658 5.68342 8.70711 5.29289L11.2929 2.70711Z" fill="currentColor" />
-                                                        <path d="M11.2929 14.7071C11.6834 14.3166 12.3166 14.3166 12.7071 14.7071L15.2929 17.2929C15.6834 17.6834 15.6834 18.3166 15.2929 18.7071L12.7071 21.2929C12.3166 21.6834 11.6834 21.6834 11.2929 21.2929L8.70711 18.7071C8.31658 18.3166 8.31658 17.6834 8.70711 17.2929L11.2929 14.7071Z" fill="currentColor" />
-                                                        <path opacity="0.3" d="M5.29289 8.70711C5.68342 8.31658 6.31658 8.31658 6.70711 8.70711L9.29289 11.2929C9.68342 11.6834 9.68342 12.3166 9.29289 12.7071L6.70711 15.2929C6.31658 15.6834 5.68342 15.6834 5.29289 15.2929L2.70711 12.7071C2.31658 12.3166 2.31658 11.6834 2.70711 11.2929L5.29289 8.70711Z" fill="currentColor" />
-                                                        <path opacity="0.3" d="M17.2929 8.70711C17.6834 8.31658 18.3166 8.31658 18.7071 8.70711L21.2929 11.2929C21.6834 11.6834 21.6834 12.3166 21.2929 12.7071L18.7071 15.2929C18.3166 15.6834 17.6834 15.6834 17.2929 15.2929L14.7071 12.7071C14.3166 12.3166 14.3166 11.6834 14.7071 11.2929L17.2929 8.70711Z" fill="currentColor" />
+                                                        <path d="M6.5 11C8.98528 11 11 8.98528 11 6.5C11 4.01472 8.98528 2 6.5 2C4.01472 2 2 4.01472 2 6.5C2 8.98528 4.01472 11 6.5 11Z" fill="currentColor" />
+                                                        <path opacity="0.3" d="M13 6.5C13 4 15 2 17.5 2C20 2 22 4 22 6.5C22 9 20 11 17.5 11C15 11 13 9 13 6.5ZM6.5 22C9 22 11 20 11 17.5C11 15 9 13 6.5 13C4 13 2 15 2 17.5C2 20 4 22 6.5 22ZM17.5 22C20 22 22 20 22 17.5C22 15 20 13 17.5 13C15 13 13 15 13 17.5C13 20 15 22 17.5 22Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                            <span class="menu-title">3D Cube Template</span>
+                                            <span class="menu-title">User Management</span>
                                             <span class="menu-arrow"></span>
                                         </span>
                                         <!--end:Menu link-->
                                         <!--begin:Menu sub-->
                                         <div class="menu-sub menu-sub-accordion">
                                             <!--begin:Menu item-->
-                                            <div class="menu-item">
+                                            <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion mb-1">
                                                 <!--begin:Menu link-->
-                                                <a class="menu-link" href="#">
+                                                <span class="menu-link">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
-                                                    <span class="menu-title">Overview</span>
-                                                </a>
+                                                    <span class="menu-title">Users</span>
+                                                    <span class="menu-arrow"></span>
+                                                </span>
                                                 <!--end:Menu link-->
+                                                <!--begin:Menu sub-->
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <!--begin:Menu item-->
+                                                    <div class="menu-item">
+                                                        <!--begin:Menu link-->
+                                                        <router-link to="/user_list" active-class="active" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">User Lists</span>
+                                                        </router-link>
+                                                        <!--end:Menu link-->
+                                                    </div>
+                                                    <!--end:Menu item-->
+                                                    <!--begin:Menu item-->
+                                                    <div class="menu-item">
+                                                        <!--begin:Menu link-->
+                                                        <router-link to="/view_user/:id" active-class="active" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">View User</span>
+                                                        </router-link>
+                                                        <!--end:Menu link-->
+                                                    </div>
+                                                    <!--end:Menu item-->
+                                                </div>
+                                                <!--end:Menu sub-->
                                             </div>
+                                            <!--end:Menu item-->
+                                            <!--begin:Menu item-->
+                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                                <!--begin:Menu link-->
+                                                <span class="menu-link">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Roles</span>
+                                                    <span class="menu-arrow"></span>
+                                                </span>
+                                                <!--end:Menu link-->
+                                                <!--begin:Menu sub-->
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <!--begin:Menu item-->
+                                                    <div class="menu-item">
+                                                        <!--begin:Menu link-->
+                                                        <router-link to="/role_list" active-class="active" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Role List</span>
+                                                        </router-link>
+                                                        <!--end:Menu link-->
+                                                    </div>
+                                                    <!--end:Menu item-->
+                                                    <!--begin:Menu item-->
+                                                    <div class="menu-item">
+                                                        <!--begin:Menu link-->
+                                                        <router-link to="/view_role" active-class="active" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">View Roles</span>
+                                                        </router-link>
+                                                        <!--end:Menu link-->
+                                                    </div>
+                                                    <!--end:Menu item-->
+                                                </div>
+                                                <!--end:Menu sub-->
+                                            </div>
+                                            <!--end:Menu item-->
+                                            <!--begin:Menu item-->
+                                            {{-- <div class="menu-item">
+                                                <!--begin:Menu link-->
+                                                <router-link to="/permission" active-class="active" class="menu-link">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Permissions</span>
+                                                </router-link>
+                                                <!--end:Menu link-->
+                                            </div> --}}
                                             <!--end:Menu item-->
                                         </div>
                                         <!--end:Menu sub-->
                                     </div>
-                                    <!--end:Menu item--> --}}
+                                    <!--end:Menu item-->
+
                                 </div>
                             </div>
                             <!--end::Menu-->

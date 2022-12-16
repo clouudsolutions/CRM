@@ -17,6 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('role');
+            $table->string('address_1');
+            $table->string('address_2');
+            $table->string('town');
+            $table->string('state/province');
+            $table->string('post_code');
+            $table->string('country');
             $table->timestamps();
         });
     }
