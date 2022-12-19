@@ -2,7 +2,6 @@
 <script>var hostUrl = "{{ asset('frontend/assets/') }}";</script>
 
 <!--begin::Vendors Javascript-->
-<script src="{{ asset('frontend/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
@@ -26,18 +25,13 @@
 <script src="{{ asset('frontend/assets/js/custom/utilities/modals/users-search.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/custom/authentication/sign-up/general.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/custom/authentication/sign-in/general.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 
 <script src="{{ asset('frontend/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 
 <script src="{{ asset('frontend/assets/js/custom/apps/user-management/users/list/table.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/custom/apps/user-management/users/list/export-users.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/custom/apps/user-management/users/list/add.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/widgets.bundle.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/custom/widgets.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/custom/apps/chat/chat.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/custom/utilities/modals/create-app.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/custom/utilities/modals/users-search.js') }}"></script>
 
 <!--end::Custom Javascript-->
 

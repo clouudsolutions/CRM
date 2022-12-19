@@ -693,9 +693,8 @@
                                         </button>
                                     </td>
                                     <!-- End Actions -->
-
                                     <!--begin::Action=-->
-                                    <!-- <td class="text-end">
+                                    <td class="text-end">
                                         <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
 
                                         <span class="svg-icon svg-icon-5 m-0">
@@ -708,7 +707,7 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 
                                             <div class="menu-item px-3">
-                                                <a href="../../demo7/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
+                                                <a href="#" class="menu-link px-3">Edit</a>
                                             </div>
 
                                             <div class="menu-item px-3">
@@ -716,10 +715,8 @@
                                             </div>
 
                                         </div>
-
-                                    </td> -->
+                                    </td>
                                     <!--end::Action=-->
-
                                 </tr>
                                 <!--end::Table row-->
 
